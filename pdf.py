@@ -3,8 +3,10 @@ import matplotlib.pyplot as plt
 
 from scipy.stats import binom, expon, norm, poisson
 
-values = np.random.uniform(-10.0, 10.0, 100000)
 fig = plt.figure()
+fig.suptitle('Probability Density Functions')
+
+values = np.random.uniform(-10.0, 10.0, 100000)
 sp1 = fig.add_subplot(321)
 sp1.hist(values, 50)
 
