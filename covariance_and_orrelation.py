@@ -5,8 +5,9 @@ Use PyLab to calculate – by hand, aka the hard way – the covariance between 
 NumPy-generated random vars and show a scatter plot of the data with MatPlotLib
 '''
 
-import numpy
 import sys
+
+import numpy
 
 from matplotlib import pyplot
 from pylab import dot, mean
