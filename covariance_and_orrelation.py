@@ -30,12 +30,8 @@ def covariance(x, y):
 
 def correlation(x, y):
     'Calculate the correlation between x and y'
-    try:
-        stddevx = x.std()
-        stddevy = y.std()
-    except AttributeError:
-        stddevx = numpy.std(x)
-        stddevy = numpy.std(y)
+    stddevx = x.std()
+    stddevy = y.std()
     return covariance(x, y) / stddevx / stddevy  # What if ZeroDivisionError?
 
 A = numpy.random.normal(3.0, 1.0, 1000)
@@ -46,8 +42,8 @@ print('Covariance of randomness by NumPy: %f' % numpy.cov(A, B)[1][0])
 print('Correlation of randomness is: %f' % correlation(A, B))
 print('Correlation of randomness by NumPy: %f' % numpy.corrcoef(A, B)[1][0])
 
-X = range(-5, 6)
-Y = [n * 2 for n in X]
+X = numpy.array(range(-5, 6))
+Y = 2 * X
 P_dev = dot(dev_mean(X), dev_mean(Y))
 
 print('X: %s\nY: %s' % (X, Y))
