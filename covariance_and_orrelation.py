@@ -38,13 +38,13 @@ def correlation(x, y):
         stddevy = numpy.std(y)
     return covariance(x, y) / stddevx / stddevy  # What if ZeroDivisionError?
 
-
 A = numpy.random.normal(3.0, 1.0, 1000)
 B = numpy.random.normal(50.0, 10.0, 1000)
 
 print('Covariance of randomness is: %f' % covariance(A, B))
+print('Covariance of randomness by NumPy: %f' % numpy.cov(A, B)[1][0])
 print('Correlation of randomness is: %f' % correlation(A, B))
-print('Correlation of randomness is by NumPy: %f' % numpy.corrcoef(A, B)[1][0])
+print('Correlation of randomness by NumPy: %f' % numpy.corrcoef(A, B)[1][0])
 
 X = range(-5, 6)
 Y = [n * 2 for n in X]
