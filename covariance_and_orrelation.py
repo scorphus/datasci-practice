@@ -5,12 +5,16 @@ Use PyLab to calculate – by hand, aka the hard way – the covariance between 
 NumPy-generated random vars and show a scatter plot of the data with MatPlotLib
 '''
 
+import json
 import sys
 
+import matplotlib
 import numpy
 
-from matplotlib import pyplot
 from pylab import dot, mean
+
+s = json.load(open('bmh_matplotlibrc.json'))
+matplotlib.rcParams.update(s)
 
 
 def dev_mean(v):
@@ -57,7 +61,7 @@ print('numpy.corrcoef(X, Y) = %f' % numpy.corrcoef(X, Y)[1][0])
 
 if '--plot' in sys.argv:
     print('Plotting scatter plots...')
-    pyplot.scatter(A, B)
-    pyplot.show()
-    pyplot.scatter(X, Y)
-    pyplot.show()
+    matplotlib.pyplot.scatter(A, B)
+    matplotlib.pyplot.show()
+    matplotlib.pyplot.scatter(X, Y)
+    matplotlib.pyplot.show()
